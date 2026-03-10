@@ -1,11 +1,11 @@
 # FinBot
-Cornell Fintech Club Spring '25 Project
+Cornell FinTech Club Spring '25 Project
 
 ## About
 
 We built a chatbot that answers questions about institutional investor behavior by analyzing SEC Form 13F filings. These filings, submitted quarterly by investment managers with over $100 million in assets, disclose their holdings in U.S. exchange-traded securities, including position sizes, market values, and asset types.
 
-Our system uses a database of 13F filings data, a LangChain SQL Agent to interpret natural language queries, and a Streamlit frontend to deliver insights. Users can ask questions in plain English and receive data-driven answers about institutional trading trends.
+Our system uses a PostgreSQL database of 13F filings, a LangChain SQL Agent to interpret natural language queries, and a Streamlit frontend to deliver insights. Users can ask questions in plain English and receive data-driven answers about institutional trading trends.
 
 Example questions it can answer:
 
@@ -40,7 +40,7 @@ This guide walks you through:
 ## 1. Clone the repository
 
 ```bash
-git clone git@github.com:niti-go/FinBot.git
+git clone git@github.com:nslingo/FinBot.git
 cd FinBot
 ```
 
@@ -50,10 +50,12 @@ cd FinBot
 
 ```bash
 python3 -m venv venv
+
 # macOS/Linux:
 source venv/bin/activate
+
 # Windows PowerShell:
-# .\\venv\\Scripts\\activate
+.\\venv\\Scripts\\activate
 ```
 
 ---
@@ -116,9 +118,9 @@ Verify tables via the Query Tool:
 Create a `.env` file:
 
 ```ini
-DB_NAME=FinBot (OR WTVR YOU NAMED YOUR DB)
-DB_USER=postgres (OR YOUR SERVER USERNAME
-DB_PASSWORD=YOURPASSWORD
+DB_NAME=finbot
+DB_USER=postgres
+DB_PASSWORD=your_password
 DB_HOST=localhost
 DB_PORT=5432
 ```
@@ -148,7 +150,7 @@ python Tests/test_get_filings.py
 
 ## 8. Inspect data
 
-In pgAdmin4, view tables by clicking through Schemas --> Tables --> Right click desired table --> View/Edit Data --> All Rows
+In pgAdmin4, view tables by clicking through Schemas → Tables → Right-click desired table → View/Edit Data → All Rows
 
 Or through query tool:
 ```sql
